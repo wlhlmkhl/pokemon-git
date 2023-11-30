@@ -145,9 +145,8 @@ checkBoxes.forEach((checkbox) => {
     });
 
     let filteredPokemons = PokedexData.filter((pokemon) => {
-      return pickedTypes.includes(pokemon.type);
+       return pickedTypes.includes(pokemon.type);
     });
-    console.log(filteredPokemons);
     showPokemon(filteredPokemons);
   });
 });
