@@ -102,6 +102,8 @@ let pokemonCards = document.querySelector("#pokemonCards");
 
 let showPokemon = (array) => {
  array.forEach((pokemon) => {
+  let card = document.createElement("div");
+  card.classList.add("pokemonCard");
   let img = document.createElement("img");
   img.src = pokemon.url;
   pokemonCards.append(img);
@@ -112,7 +114,9 @@ let showPokemon = (array) => {
   Weight: ${pokemon.weight} lbs
   Type: ${pokemon.type}
   `;
-  pokemonCards.append(info);
+  
+  pokemonCards.append(card);
+  card.append(img, info)
   info.append(text);
 });
 };
