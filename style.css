@@ -1,0 +1,54 @@
+body {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 18px;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+h1 {
+  font-size: 30px;
+}
+fieldset {
+  font-size: 24px;
+  width: fit-content;
+  margin-bottom: 15px;
+  border: solid 1px purple;
+  display: flex;
+  flex-flow: row wrap;
+  column-gap: 15px;
+  row-gap: 10px;
+  & #submitBtn {
+    width: 11em;
+    background-color: #8000804f;
+    border: solid 2px purple;
+  }
+  & input {
+    border: solid 1px purple;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+}
+#pokemonCards {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  row-gap: 15px;
+}
+.pokemonCard {
+  max-width: 15em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid 1px purple;
+  border-radius: 20px;
+  & img {
+    width: 80%;
+  }
+}

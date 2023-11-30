@@ -130,20 +130,26 @@ submitBtn.addEventListener("click", (event) => {
 
 //Pokemons som visas direkt
 let showPokemon = (array) => {
-  array.forEach((pokemon) => {
-    let img = document.createElement("img");
-    img.src = pokemon.url;
-    pokemonCards.append(img);
-    let info = document.createElement("div");
-    let text = document.createElement("p");
-    text.innerText = `Name: ${pokemon.name}
+
+ array.forEach((pokemon) => {
+  let card = document.createElement("div");
+  card.classList.add("pokemonCard");
+  let img = document.createElement("img");
+  img.src = pokemon.url;
+  pokemonCards.append(img);
+  let info = document.createElement("div");
+  let text = document.createElement("p");
+  text.innerText = `Name: ${pokemon.name}
   Height: ${pokemon.height} feet
   Weight: ${pokemon.weight} lbs
   Type: ${pokemon.type}
   `;
-    pokemonCards.append(info);
-    info.append(text);
-  });
+  
+  pokemonCards.append(card);
+  card.append(img, info)
+  info.append(text);
+});
+  
 };
 showPokemon(PokedexData);
 
