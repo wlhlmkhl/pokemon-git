@@ -39,7 +39,7 @@ fieldset {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
-  row-gap: 15px;
+  gap: 15px;
 }
 .pokemonCard {
   max-width: 15em;
