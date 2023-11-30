@@ -3,9 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
     <title>Document</title>
 </head>
 <body>
-    
+    <div class="wrapper">
+        <h1>Pokemonlist</h1>
+        <fieldset>
+            <legend>Sortera</legend>
+            <input type="checkbox" name="type" id="grass">
+            <label for="grass">Grass</label>
+            <input type="checkbox" name="type" id="fire">
+            <label for="fire">Fire</label>
+            <input type="checkbox" name="type" id="electric">
+            <label for="electric">Electric</label>
+            <input type="checkbox" name="type" id="psychic">
+            <label for="psychic">Psychic</label>
+            <input type="checkbox" name="type" id="water">
+            <label for="water">Water</label>
+            <input type="checkbox" name="type" id="normal">
+            <label for="normal">Normal</label>
+        </fieldset>
+        <div class="container" id="pokemonCards">
+
+        </div>
+    </div>
 </body>
 </html>

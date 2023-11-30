@@ -112,3 +112,16 @@ const PokedexData = [
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/97.png"
   }
 ];
+let pokemonCards = document.querySelector("#pokemonCards");
+
+PokedexData.forEach((pokemon)=>{
+  let img = document.createElement("img");
+  img.src = pokemon.url;
+  pokemonCards.append(img);
+  let info = document.createElement("div");
+  let text = document.createElement("p");
+  text.textContent = `Name: ${pokemon.name}`
+  pokemonCards.append(info);
+  info.append(text);
+  
+})
