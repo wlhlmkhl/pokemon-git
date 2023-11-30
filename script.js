@@ -98,41 +98,56 @@ const PokedexData = [
     url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/97.png",
   },
 ];
+
+//Deklarera & definiera variabler
 let pokemonCards = document.querySelector("#pokemonCards");
 
+let submitBtn = document.querySelector("#submitBtn");
+
+//Lägg in värdena i objekt
+
+submitBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  let newPokemon = {};
+
+  let name = document.querySelector("#name");
+  let height = document.querySelector("#height");
+  let weight = document.querySelector("#weight");
+  let type = document.querySelector("#type");
+  let url = document.querySelector("#url");
+
+  newPokemon.name = name.value;
+  newPokemon.height = height.value;
+  newPokemon.weight = weight.value;
+  newPokemon.type = type.value;
+  newPokemon.url = url.value;
+
+  console.log(newPokemon);
+
+  PokedexData.push(newPokemon);
+  showPokemon(PokedexData);
+});
+
+//Pokemons som visas direkt
 let showPokemon = (array) => {
- array.forEach((pokemon) => {
-  let img = document.createElement("img");
-  img.src = pokemon.url;
-  pokemonCards.append(img);
-  let info = document.createElement("div");
-  let text = document.createElement("p");
-  text.innerText = `Name: ${pokemon.name}
+  array.forEach((pokemon) => {
+    let img = document.createElement("img");
+    img.src = pokemon.url;
+    pokemonCards.append(img);
+    let info = document.createElement("div");
+    let text = document.createElement("p");
+    text.innerText = `Name: ${pokemon.name}
   Height: ${pokemon.height} feet
   Weight: ${pokemon.weight} lbs
   Type: ${pokemon.type}
   `;
-  pokemonCards.append(info);
-  info.append(text);
-});
+    pokemonCards.append(info);
+    info.append(text);
+  });
 };
 showPokemon(PokedexData);
-// PokedexData.forEach();
 
-  // let img = document.createElement("img");
-  // img.src = pokemon.url;
-  // pokemonCards.append(img);
-  // let info = document.createElement("div");
-  // let text = document.createElement("p");
-  // text.innerText = `Name: ${pokemon.name}
-  // Height: ${pokemon.height} feet
-  // Weight: ${pokemon.weight} lbs
-  // Type: ${pokemon.type}
-  // `;
-  // pokemonCards.append(info);
-  // info.append(text);
-
-
+//Filtrera med checkboxar
 let checkBoxes = document.querySelectorAll("[name = 'type']");
 checkBoxes.forEach((checkbox) => {
   checkbox.addEventListener("click", () => {
@@ -145,7 +160,7 @@ checkBoxes.forEach((checkbox) => {
     });
 
     let filteredPokemons = PokedexData.filter((pokemon) => {
-       return pickedTypes.includes(pokemon.type);
+      return pickedTypes.includes(pokemon.type);
     });
     showPokemon(filteredPokemons);
   });
