@@ -100,7 +100,8 @@ const PokedexData = [
 ];
 let pokemonCards = document.querySelector("#pokemonCards");
 
-PokedexData.forEach((pokemon) => {
+let showPokemon = (array) => {
+ array.forEach((pokemon) => {
   let img = document.createElement("img");
   img.src = pokemon.url;
   pokemonCards.append(img);
@@ -114,10 +115,39 @@ PokedexData.forEach((pokemon) => {
   pokemonCards.append(info);
   info.append(text);
 });
+};
+showPokemon(PokedexData);
+// PokedexData.forEach();
+
+  // let img = document.createElement("img");
+  // img.src = pokemon.url;
+  // pokemonCards.append(img);
+  // let info = document.createElement("div");
+  // let text = document.createElement("p");
+  // text.innerText = `Name: ${pokemon.name}
+  // Height: ${pokemon.height} feet
+  // Weight: ${pokemon.weight} lbs
+  // Type: ${pokemon.type}
+  // `;
+  // pokemonCards.append(info);
+  // info.append(text);
+
 
 let checkBoxes = document.querySelectorAll("[name = 'type']");
 checkBoxes.forEach((checkbox) => {
   checkbox.addEventListener("click", () => {
     pokemonCards.innerHTML = "";
+
+    let selectedTypes = document.querySelectorAll("[name='type']:checked");
+    let pickedTypes = [];
+    selectedTypes.forEach((box) => {
+      pickedTypes.push(box.value);
+    });
+
+    let filteredPokemons = PokedexData.filter((pokemon) => {
+      return pickedTypes.includes(pokemon.type);
+    });
+    console.log(filteredPokemons);
+    showPokemon(filteredPokemons);
   });
 });
